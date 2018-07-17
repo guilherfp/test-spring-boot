@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Cadastro de Usuários</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div th:insert="~{shared :: menu}"></div>
+  <div class="jumbotron">
+    <h3 class="display-4">Cadastro</h3>
+  </div>
+  <div class="container">
+    <form th:action="@{/usuarios/cadastro}" action="/usuarios/cadastro" method="post" th:object="${form}">
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="email">E-mail</label>
+        <div class="col-md-4">
+          <input id="email" name="email" type="email" placeholder="E-mail" class="form-control input-md" required
+            th:field="*{email}"> <span class="help-block">E-mail do novo usário</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="senha">Senha</label>
+        <div class="col-md-4">
+          <input id="senha" name="senha" type="text" placeholder="Senha" class="form-control input-md" required
+            th:field="*{senha}"> <span class="help-block">Senha do novo usuário</span>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-lg btn-block btn-primary">Salvar</button>
+    </form>
+  </div>
+  <div th:insert="~{shared :: script}"></div>
+</body>
+
+</html>

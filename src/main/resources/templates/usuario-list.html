@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Usuários</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css" />
+</head>
+<body>
+  <div th:insert="~{shared :: menu}"></div>
+  <div class="jumbotron">
+    <h3 class="display-4">Usuários</h3>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">E-mail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="usuario: ${usuarios}">
+        <td scope="row" th:text="${usuario.id}">ID</td>
+        <td th:text="${usuario.email}">E-mail</td>
+      </tr>
+    </tbody>
+  </table>
+  <div th:insert="~{shared :: script}"></div>
+</body>
+</html>
